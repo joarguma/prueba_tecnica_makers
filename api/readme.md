@@ -1,4 +1,4 @@
-# Pruebas API — Makers Practica
+# Pruebas API — Makers Practice
 
 ## Resumen
 
@@ -90,3 +90,11 @@ Se agregó un PATCH enviando únicamente:
 La API respondió HTTP 200 y devolvió `Test User Johan`, por lo que sus dos tests aprobaron. Esto valida la respuesta del PATCH; no demuestra persistencia del cambio para una consulta posterior en la demo.
 
 El título del test de estado del PATCH todavía dice **“Status code is 201”**, aunque su aserción valida correctamente **200**. Conviene ajustar el título para evitar una lectura incorrecta del reporte.
+
+## 6. Sugerencias para ampliar la cobertura
+
+1. **Validación de esquemas.** Se sugiere incorporar validaciones de esquema para las solicitudes y respuestas, incluyendo los escenarios exitosos y de error. Para ello, se requiere un contrato técnico completo y alineado con el requerimiento que especifique las estructuras, tipos de datos, formatos, campos requeridos y reglas de nulabilidad, por ejemplo mediante OpenAPI y JSON Schema.
+
+2. **Validaciones de campos y restricciones.** Con base en ese contrato, agregar casos con campos en blanco, valores nulos, longitudes inferiores y superiores a los límites permitidos y ausencia de campos requeridos. Los resultados esperados y códigos de respuesta deben corresponder a las restricciones documentadas, distinguiendo los campos opcionales y aquellos que admiten valores nulos.
+
+3. **Headers obligatorios y opcionales.** Se sugiere definir en el contrato cuáles headers son requeridos y cuáles opcionales para cada endpoint, junto con sus formatos y valores admitidos. Validar el comportamiento ante headers requeridos ausentes, vacíos o inválidos, y comprobar que la ausencia de los opcionales mantenga el comportamiento previsto.
